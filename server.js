@@ -4,6 +4,7 @@ const cors = require('cors');
 const path = require("path");
 const mongoose = require("mongoose");
 const axios = require("axios");
+require('dotenv').config();
 
 
 const port =8000;
