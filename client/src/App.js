@@ -1,6 +1,7 @@
 import React from 'react';
-import { RouterDom as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import SearchPage from './pages/SearchPage';
 import './App.css';
 
 function App() {
@@ -11,11 +12,11 @@ function App() {
 
       <Switch>
 
-        <Route exact path="/" component={HomePage} />
+        {/* <Route exact path="/" component={HomePage} /> */}
 
         <Route exact path="/" component={SearchPage} />
 
-        <Route exact path="/" component={SavePage} />
+        {/* <Route exact path="/" component={SavePage} /> */}
 
       </Switch>
       
