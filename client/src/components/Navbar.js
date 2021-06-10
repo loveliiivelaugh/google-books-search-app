@@ -17,10 +17,10 @@ const Navigator = () => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink href="/components/">Search</NavLink>
+              <NavLink href="/">Search</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">Saved</NavLink>
+              <NavLink href="/save">Saved</NavLink>
             </NavItem>
           </Nav>
         </Collapse>

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import Api from '../api';
 import { useRouter } from '../hooks/router.js';
 //components
@@ -13,17 +12,17 @@ const SearchPage = () => {
   const router = useRouter();
   const [booksData, setBooks] = useState([]);
 
-  const fetchData = async (searchTerm) => {
-    const booksData = await axios.get('/api/books/' + searchTerm);
-
-    setBooks(booksData.data);
-  };
-
   const handleSubmit = async e => {
     e.preventDefault();
 
-    const searchTerm = await e.target.search.value;
-    fetchData(searchTerm);
+    let searchTerm = await e.target.search.value;
+    const booksData = await Api.fetchData(searchTerm);
+
+    console.log(booksData);
+
+    setBooks(booksData.data);
+
+    searchTerm = '';
   };
 
   const handleViewBtn = ({ id, details })  => {
@@ -56,7 +55,6 @@ const SearchPage = () => {
       <ResultsSection
         cardTitle="Results"
         booksData={booksData}
-        handleViewBtn={handleViewBtn}
         handleSaveBtn={handleSaveBtn}
       />
     </Container>

@@ -4,8 +4,10 @@ import {
   Button, Card, CardBody, CardTitle, Container, 
   Col, Row, CardText, CardSubtitle
 } from 'reactstrap';
+//router
+import { Link } from 'react-router-dom';
 
-const ResultsSection = ({ cardTitle, booksData, handleViewBtn, handleSaveBtn }) => {
+const ResultsSection = ({ cardTitle, booksData, handleSaveBtn }) => {
   return (
     <>
       {booksData.length > 0 && 
@@ -18,10 +20,10 @@ const ResultsSection = ({ cardTitle, booksData, handleViewBtn, handleSaveBtn }) 
                   <Col md={6}>
                     <CardTitle tag="h5">{volumeInfo.title}</CardTitle>
                     <CardSubtitle tag="h6" className="mb-2 text-muted">{volumeInfo.subtitle}</CardSubtitle>
-                    <CardText><small>Written By: {volumeInfo.authors[0]}</small></CardText>
+                    {/* <CardText><small>Written By: {volumeInfo?.authors[0]}</small></CardText> */}
                   </Col>
                   <Col md={6}>
-                    <Button onClick={() => handleViewBtn({ id: id, details: volumeInfo })}>View</Button>
+                    <Link to={volumeInfo.previewLink ? volumeInfo.previewLink : '/'}><Button>View</Button></Link>
                     <Button onClick={() => handleSaveBtn({ id: id, details: volumeInfo })}>Save</Button>
                   </Col>
                 </Row>
