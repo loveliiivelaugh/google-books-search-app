@@ -44,9 +44,9 @@ router.get('/', async (req, res) => {
  * @descr delete a saved book by id
  * @method DELETE /api/library
  */
-router.delete('/:query', async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
-    const deletedBook = await Book.deleteOne({ id: req.params.query });
+    const deletedBook = await Book.deleteOne({ _id: req.params.id });
 
     console.log(deletedBook);
     res.status(200).json(deletedBook);
